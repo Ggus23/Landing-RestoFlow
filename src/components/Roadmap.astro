@@ -1,0 +1,185 @@
+---
+// Sección: Hoja de Ruta (Futuras Integraciones Estratégicas)
+const roadmapItems = [
+  {
+    number: '01',
+    title: 'Facturación Electrónica Nativa',
+    description: 'Integración con APIs fiscales internacionales (AFIP, SAT, E-Invoice) para la emisión de comprobantes legales automáticos desde el POS.',
+    status: 'En diseño',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`
+  },
+  {
+    number: '02',
+    title: 'Integración Directa con Delivery Apps',
+    description: 'Módulo optimizado para conectarse con las APIs de Yango Delivery, PedidosYa o UberEats, centralizando pedidos externos directamente en el POS.',
+    status: 'Prioridad alta',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2c0 7.3-8 11.8-8 11.8z" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="1.5"/></svg>`
+  },
+  {
+    number: '03',
+    title: 'App de Logística para Repartidores',
+    description: 'Interfaz móvil simplificada para el seguimiento en tiempo real y gestión de entregas de la flota propia del restaurante.',
+    status: 'En planificación',
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M12 18h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`
+  }
+];
+---
+
+<section class="section roadmap-section" id="roadmap">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M2 14V2l5 4 5-4v12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Hoja de Ruta
+      </span>
+      <h2 class="section-title">Diseñado para <span class="gradient-text">Evolucionar</span></h2>
+      <p class="section-subtitle">El núcleo de RestoFlow está preparado estructuralmente para recibir módulos críticos de expansión. Arquitectura extensible desde el día uno.</p>
+    </div>
+
+    <div class="roadmap-timeline">
+      {roadmapItems.map((item, i) => (
+        <div class={`roadmap-item glass-card reveal reveal-delay-${i + 1}`}>
+          <div class="roadmap-number">{item.number}</div>
+          <div class="roadmap-content">
+            <div class="roadmap-header">
+              <div class="roadmap-icon" set:html={item.icon} />
+              <div>
+                <h3 class="roadmap-title">{item.title}</h3>
+                <span class="roadmap-status">{item.status}</span>
+              </div>
+            </div>
+            <p class="roadmap-description">{item.description}</p>
+          </div>
+          <div class="roadmap-line" aria-hidden="true"></div>
+        </div>
+      ))}
+    </div>
+
+    <p class="roadmap-note reveal">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1v6M8 11v.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+      Estos módulos no están incluidos en la versión base actual. El código base está preparado para integrarlos de forma nativa.
+    </p>
+  </div>
+</section>
+
+<style>
+  .roadmap-section {
+    position: relative;
+  }
+
+  .section-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  .roadmap-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .roadmap-item {
+    padding: 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .roadmap-number {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    font-family: var(--font-mono);
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.03);
+    line-height: 1;
+  }
+
+  .roadmap-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .roadmap-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .roadmap-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-yellow);
+    background: rgba(255, 214, 10, 0.08);
+    border: 1px solid rgba(255, 214, 10, 0.12);
+    border-radius: 14px;
+    flex-shrink: 0;
+  }
+
+  .roadmap-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .roadmap-status {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent-yellow);
+    background: rgba(255, 214, 10, 0.08);
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    border: 1px solid rgba(255, 214, 10, 0.12);
+  }
+
+  .roadmap-description {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .roadmap-line {
+    position: absolute;
+    bottom: 0;
+    left: 2rem;
+    right: 2rem;
+    height: 1px;
+    background: linear-gradient(90deg, var(--accent-pink), var(--accent-yellow), transparent);
+    opacity: 0.15;
+  }
+
+  .roadmap-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+  }
+
+  .roadmap-note svg {
+    color: var(--accent-yellow);
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .roadmap-item {
+      padding: 1.75rem;
+    }
+  }
+</style>

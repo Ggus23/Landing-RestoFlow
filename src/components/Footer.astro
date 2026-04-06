@@ -1,0 +1,275 @@
+---
+// Footer Component - Incluye métodos de pago internacional
+---
+
+<footer class="footer" id="footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#" class="footer-logo" aria-label="RestoFlow Home">
+          <div class="footer-logo-icon">
+            <svg width="24" height="24" viewBox="0 0 28 28" fill="none">
+              <rect width="28" height="28" rx="8" fill="url(#footer-logo-grad)"/>
+              <path d="M8 10h12M8 14h8M8 18h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+              <defs>
+                <linearGradient id="footer-logo-grad" x1="0" y1="0" x2="28" y2="28">
+                  <stop stop-color="#ff2d75"/>
+                  <stop offset="1" stop-color="#ffd60a"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <span class="footer-logo-text">Resto<span class="footer-highlight">Flow</span></span>
+        </a>
+        <p class="footer-tagline">
+          Plataforma Base de Punto de Venta y Gestión de Cocina en Tiempo Real. 
+          Arquitectura escalable para la operación gastronómica moderna.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-group-title">Producto</h4>
+        <ul class="footer-links">
+          <li><a href="#funcionalidades">Funcionalidades</a></li>
+          <li><a href="#roadmap">Hoja de Ruta</a></li>
+          <li><a href="#soporte">Soporte & SLA</a></li>
+          <li><a href="#demo">Agendar Demo</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-group-title">Tecnología</h4>
+        <ul class="footer-links">
+          <li><a href="#funcionalidades">Laravel 12</a></li>
+          <li><a href="#funcionalidades">Vue 3 + Inertia.js</a></li>
+          <li><a href="#funcionalidades">WebSockets</a></li>
+          <li><a href="#funcionalidades">API REST</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <!-- Métodos de Pago Internacional -->
+    <div class="footer-payments reveal">
+      <div class="payments-content">
+        <div class="payments-icon">
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="1.5"/><path d="M2 10h16M10 2a14.5 14.5 0 014 8 14.5 14.5 0 01-4 8 14.5 14.5 0 01-4-8 14.5 14.5 0 014-8z" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div class="payments-text">
+          <h4 class="payments-title">Transacciones Internacionales Seguras</h4>
+          <p class="payments-description">
+            Operamos contratos internacionales. Todos los pagos, sin importar el país, se pueden realizar 
+            de forma instantánea a través de <strong>Binance (Cripto/USDT)</strong> o <strong>Airtm</strong>.
+          </p>
+        </div>
+      </div>
+      <div class="payments-badges">
+        <span class="payment-badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 1l2 3h4l-3.5 2.5L12 10l-4-2.5L4 10l1.5-3.5L2 4h4l2-3z" fill="#ffd60a"/></svg>
+          Binance / USDT
+        </span>
+        <span class="payment-badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><circle cx="8" cy="8" r="6" stroke="#00d4ff" stroke-width="1.5"/><path d="M8 5v6M5 8h6" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Airtm
+        </span>
+        <span class="payment-badge">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M13 5H3a1 1 0 00-1 1v6a1 1 0 001 1h10a1 1 0 001-1V6a1 1 0 00-1-1zM2 7h12" stroke="#b388ff" stroke-width="1.5" stroke-linecap="round"/></svg>
+          Transferencia Internacional
+        </span>
+      </div>
+    </div>
+
+    <hr class="section-divider" />
+
+    <div class="footer-bottom">
+      <p class="footer-copyright">
+        © 2026 RestoFlow. Todos los derechos reservados.
+      </p>
+      <p class="footer-legal">
+        Arquitectura escalable. Plataforma base de alto rendimiento.
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: 4rem 0 2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+  }
+
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+  }
+
+  .footer-logo-icon {
+    display: flex;
+    align-items: center;
+  }
+
+  .footer-logo-text {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .footer-highlight {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .footer-tagline {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 320px;
+  }
+
+  .footer-links-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-group-title {
+    font-size: 0.82rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 0.25rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .footer-links li a {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    transition: color var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .footer-links li a:hover {
+    color: var(--accent-pink);
+  }
+
+  /* Payments Section */
+  .footer-payments {
+    padding: 2.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .payments-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .payments-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-cyan);
+    background: rgba(0, 212, 255, 0.08);
+    border: 1px solid rgba(0, 212, 255, 0.12);
+    border-radius: 10px;
+    flex-shrink: 0;
+  }
+
+  .payments-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+  }
+
+  .payments-description {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .payments-description strong {
+    color: var(--text-secondary);
+  }
+
+  .payments-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .payment-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.45rem 1rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  /* Bottom */
+  .footer-bottom {
+    padding-top: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copyright {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+
+  .footer-legal {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+    }
+  }
+</style>

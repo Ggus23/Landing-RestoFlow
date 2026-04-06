@@ -1,0 +1,147 @@
+---
+// Showcase Section - "El Vistazo"
+const images = [
+  '/pictures-resto/Captura desde 2026-04-06 11-40-53.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-40-45.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-40-02.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-39-56.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-39-32.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-39-24.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-38-49.png',
+  '/pictures-resto/Captura desde 2026-04-06 11-38-19.png'
+].map(img => encodeURI(img));
+---
+
+<section class="showcase" id="showcase">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M1 8s3-5 7-5 7 5 7 5-3 5-7 5-7-5-7-5z" stroke="currentColor" stroke-width="1.5"/><circle cx="8" cy="8" r="2.5" stroke="currentColor" stroke-width="1.5"/></svg>
+        Vistazo Interno
+      </span>
+      <h2 class="section-title">Una interfaz <span class="gradient-text">Premium</span> para tu operación</h2>
+      <p class="section-subtitle">Diseñada para la velocidad y la claridad visual. Sin distracciones, solo eficiencia pura para el staff.</p>
+    </div>
+
+    <div class="showcase-gallery">
+      <div class="showcase-track">
+        {images.map((img, i) => (
+          <div class={`showcase-item reveal reveal-delay-${(i % 3) + 1}`}>
+            <div class="screen-frame">
+              <div class="screen-top">
+                <div class="dots"><span></span><span></span><span></span></div>
+              </div>
+              <div class="img-container">
+                <img src={img} alt={`Captura del sistema ${i + 1}`} loading="lazy" />
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .showcase {
+    padding-bottom: 8rem;
+    overflow: hidden;
+  }
+
+  .section-header {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 4rem;
+  }
+
+  /* Gallery Layout */
+  .showcase-gallery {
+    padding: 2rem 0;
+    perspective: 2000px;
+  }
+
+  .showcase-track {
+    display: flex;
+    gap: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .showcase-item {
+    flex: 0 0 calc(50% - 1.5rem);
+    max-width: 500px;
+    transition: transform var(--transition-slow);
+  }
+
+  .showcase-item:nth-child(even) {
+    transform: translateY(2rem);
+  }
+
+  .showcase-item:hover {
+    transform: translateY(-0.5rem) scale(1.02);
+  }
+
+  /* Screen Frame Mockup */
+  .screen-frame {
+    background: #1a1a1a;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 20px 40px rgba(0,0,0,0.4),
+      0 0 0 1px rgba(255,255,255,0.05);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .screen-top {
+    height: 24px;
+    background: #252525;
+    padding: 0 1rem;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .dots {
+    display: flex;
+    gap: 6px;
+  }
+
+  .dots span {
+    width: 8px;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+  }
+
+  .img-container {
+    aspect-ratio: 16/10;
+    overflow: hidden;
+    background: #000;
+  }
+
+  .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.9;
+    transition: opacity var(--transition-fast);
+  }
+
+  .showcase-item:hover img {
+    opacity: 1;
+  }
+
+  @media (max-width: 992px) {
+    .showcase-item {
+      flex: 0 0 100%;
+      max-width: 100%;
+    }
+    
+    .showcase-item:nth-child(even) {
+      transform: none;
+    }
+  }
+</style>

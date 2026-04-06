@@ -1,0 +1,82 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'RestoFlow — La Solución POS definitiva para tu Restaurante',
+  description = 'Obtén el control total de tu restaurante con un sistema POS + KDS de última generación. Código fuente 100% tuyo, sin mensualidades ni restricciones.'
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <title>{title}</title>
+  </head>
+  <body>
+    <!-- Background Particles -->
+    <div class="bg-particles" id="particles" aria-hidden="true"></div>
+
+    <slot />
+
+    <!-- Scroll Reveal + Particles Script -->
+    <script>
+      // Scroll Reveal Observer
+      const revealElements = document.querySelectorAll('.reveal');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+      revealElements.forEach((el) => observer.observe(el));
+
+      // Background Particles
+      const particlesContainer = document.getElementById('particles');
+      if (particlesContainer) {
+        const colors = ['#ff2d75', '#ffd60a', '#00d4ff', '#b388ff'];
+        for (let i = 0; i < 30; i++) {
+          const particle = document.createElement('div');
+          particle.classList.add('particle');
+          particle.style.left = Math.random() * 100 + '%';
+          particle.style.animationDuration = (Math.random() * 15 + 10) + 's';
+          particle.style.animationDelay = (Math.random() * 10) + 's';
+          particle.style.width = (Math.random() * 3 + 1) + 'px';
+          particle.style.height = particle.style.width;
+          particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+          particlesContainer.appendChild(particle);
+        }
+      }
+
+      // Smooth scroll for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', (e) => {
+          e.preventDefault();
+          const href = anchor.getAttribute('href');
+          if (href) {
+            const target = document.querySelector(href);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

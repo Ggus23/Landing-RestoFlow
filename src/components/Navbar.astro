@@ -1,0 +1,238 @@
+---
+// Navbar Component
+---
+
+<nav class="navbar" id="navbar">
+  <div class="navbar-inner container">
+    <a href="#" class="navbar-logo" aria-label="RestoFlow Home">
+      <div class="logo-icon">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="28" height="28" rx="8" fill="url(#logo-grad)"/>
+          <path d="M8 10h12M8 14h8M8 18h10" stroke="#fff" stroke-width="2" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="28" y2="28">
+              <stop stop-color="#ff2d75"/>
+              <stop offset="1" stop-color="#ffd60a"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+      <span class="logo-text">Resto<span class="logo-highlight">Flow</span></span>
+    </a>
+
+    <ul class="navbar-links" id="navbar-links">
+      <li><a href="#problema" class="nav-link">El Problema</a></li>
+      <li><a href="#funcionalidades" class="nav-link">Funcionalidades</a></li>
+      <li><a href="#roadmap" class="nav-link">Hoja de Ruta</a></li>
+      <li><a href="#soporte" class="nav-link">Soporte</a></li>
+    </ul>
+
+    <a href="#demo" class="navbar-cta">
+      <span>Agendar Demo</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+
+    <button class="navbar-toggle" id="navbar-toggle" aria-label="Abrir menú" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+</nav>
+
+<style>
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    padding: 1rem 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .navbar.scrolled {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 0.75rem 0;
+  }
+
+  .navbar-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+
+  .navbar-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    z-index: 1001;
+  }
+
+  .logo-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+  }
+
+  .logo-highlight {
+    background: var(--gradient-hero);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .navbar-links {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    border-radius: 8px;
+    transition: all var(--transition-fast);
+    text-decoration: none;
+  }
+
+  .nav-link:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .navbar-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.6rem 1.5rem;
+    background: var(--gradient-hero);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.85rem;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .navbar-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 0 25px var(--accent-pink-glow);
+  }
+
+  .navbar-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+  }
+
+  .navbar-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--text-primary);
+    border-radius: 2px;
+    transition: all var(--transition-fast);
+  }
+
+  .navbar-toggle.active span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .navbar-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .navbar-toggle.active span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  @media (max-width: 768px) {
+    .navbar-toggle {
+      display: flex;
+    }
+
+    .navbar-links {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 10, 15, 0.98);
+      backdrop-filter: blur(20px);
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.5rem;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition-base);
+      z-index: 1000;
+    }
+
+    .navbar-links.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    .nav-link {
+      font-size: 1.25rem;
+      padding: 0.75rem 1.5rem;
+    }
+
+    .navbar-cta {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {
+      navbar?.classList.add('scrolled');
+    } else {
+      navbar?.classList.remove('scrolled');
+    }
+  });
+
+  // Mobile toggle
+  const toggle = document.getElementById('navbar-toggle');
+  const links = document.getElementById('navbar-links');
+  toggle?.addEventListener('click', () => {
+    toggle.classList.toggle('active');
+    links?.classList.toggle('open');
+    const isOpen = toggle.classList.contains('active');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+  });
+
+  // Close nav on link click
+  links?.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      toggle?.classList.remove('active');
+      links?.classList.remove('open');
+    });
+  });
+</script>

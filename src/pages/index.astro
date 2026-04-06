@@ -1,0 +1,35 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Showcase from '../components/Showcase.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import Features from '../components/Features.astro';
+import Roadmap from '../components/Roadmap.astro';
+import Support from '../components/Support.astro';
+import DemoCTA from '../components/DemoCTA.astro';
+import Footer from '../components/Footer.astro';
+
+import '../styles/global.css';
+---
+
+<Layout>
+  <Navbar />
+
+  <main>
+    <Hero />
+    <Showcase />
+    <hr class="section-divider" />
+    <ProblemSolution />
+    <hr class="section-divider" />
+    <Features />
+    <hr class="section-divider" />
+    <Roadmap />
+    <hr class="section-divider" />
+    <Support />
+    <hr class="section-divider" />
+    <DemoCTA />
+  </main>
+
+  <Footer />
+</Layout>
