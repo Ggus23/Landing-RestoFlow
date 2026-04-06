@@ -48,7 +48,7 @@
   /* Spacing */
   --section-padding: clamp(4rem, 8vw, 8rem);
   --container-max: 1200px;
-  --container-padding: clamp(1.5rem, 4vw, 3rem);
+  --container-padding: clamp(1rem, 4vw, 3rem);
 
   /* Shadows */
   --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
