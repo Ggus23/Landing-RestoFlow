@@ -253,15 +253,40 @@
 </style>
 
 <script>
-  const form = document.getElementById('demo-form');
+  const form = document.getElementById('demo-form') as HTMLFormElement;
   form?.addEventListener('submit', (e) => {
     e.preventDefault();
+    
+    // Get form data
+    const formData = new FormData(form);
+    const name = formData.get('name');
+    const email = formData.get('email');
+    const company = formData.get('company') || 'No especificada';
+    const role = formData.get('role') || 'No especificado';
+    
+    // Construct WhatsApp message
+    const phoneNumber = '59179717725';
+    const text = `🚀 *Nueva Solicitud de Demo - RestoFlow*\n\n*Nombre:* ${name}\n*Email:* ${email}\n*Empresa:* ${company}\n*Perfil:* ${role}\n\nHola! Me gustaría agendar una demostración en vivo del sistema.`;
+    
+    const encodedText = encodeURIComponent(text);
+    const waUrl = `https://wa.me/${phoneNumber}?text=${encodedText}`;
+    
+    // Update UI briefly to show success before redirect
     const btn = document.getElementById('demo-submit');
     if (btn) {
-      btn.innerHTML = '<span>✓ ¡Solicitud Enviada!</span>';
+      btn.innerHTML = '<span>✓ Redirigiendo a WhatsApp...</span>';
       btn.style.background = 'linear-gradient(135deg, #00e676, #00d4ff)';
-      btn.style.pointerEvents = 'none';
     }
-    // Here you would integrate with your backend/email service
+
+    // Redirect to WhatsApp
+    setTimeout(() => {
+        window.open(waUrl, '_blank');
+        // Reset button
+        if (btn) {
+            btn.innerHTML = '<span>Agendar Demostración en Vivo</span><svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M12 6l4 4-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            btn.style.background = '';
+        }
+        form.reset();
+    }, 800);
   });
 </script>
